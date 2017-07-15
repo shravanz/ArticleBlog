@@ -1,0 +1,23 @@
+{
+  "name": "ArticleBlog",
+  "version": "1.0.0",
+  "description": "Simple Article-Blog Where Users can Creates articles",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shravanz/ArticleBlog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shravanz/ArticleBlog/issues"
+  },
+  "homepage": "https://github.com/shravanz/ArticleBlog#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
