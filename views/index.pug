@@ -2,6 +2,6 @@ extends layout
 
 block content
   h1 #{someVar}
-  ul
+  ul.list-group
     each indexVar, i in allArticles
-      li= indexVar.title
+      li.list-group-item= indexVar.title

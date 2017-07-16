@@ -10,6 +10,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+//set public folder
+app.use(express.static(path.join(__dirname,'public')));
+
 //connection to MongoDb
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -61,7 +64,7 @@ app.get('/',(req,res) => {
       console.log(err);
     }else {
       res.render('index',{
-        someVar:'articles',
+        someVar:'Articles',
         allArticles:allArticles
       });
     }
