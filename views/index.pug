@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1 #{someVar}
+  ul
+    each indexVar, i in allArticles
+      li= indexVar.title
