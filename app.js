@@ -77,6 +77,15 @@ app.get('/addArticle',(req,res)=>{
     someVar:'Add Articles'
   });
 })
+//get a single Article route
+
+app.get('/article/:_id',(req,res)=>{
+  Article.findById(req.params._id,(err,singleArticle)=>{
+      res.render('article',{
+       singleArticle:singleArticle
+    });
+  });
+});
 
 //post request routes
 app.post('/addArticle',(req,res)=>{

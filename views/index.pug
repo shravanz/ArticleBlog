@@ -4,4 +4,5 @@ block content
   h1 #{someVar}
   ul.list-group
     each indexVar, i in allArticles
-      li.list-group-item= indexVar.title
+      li.list-group-item
+        a(href="/article/"+indexVar._id)= indexVar.title

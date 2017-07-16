@@ -16,12 +16,15 @@ html
             a.navbar-brand(href='/') PostArticle
           #navbar.collapse.navbar-collapse
            ul.nav.navbar-nav
-             li.active
+             li
                 a(href='/') Home
              li
-                a(href='/addArticle') addArticle
-      block content
+                a(href='/addArticle') add Article
+      .container
+        block content
         br
         hr
-      footer
-        p copyright &copy; shravanz_2017
+        footer
+          p copyright &copy; shravanz_2017
+      script(src='/bower_components/jquery/dist/jquery.js')
+      script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
