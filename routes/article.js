@@ -3,7 +3,7 @@ const router = express.Router();
 let Article = require('../models/article')
 
 router
-//gets  request routes
+//get  request routes
 .get('/addArticle',(req,res)=>{
   res.render('add'  ,{
     someVar:'Add Articles'
@@ -31,4 +31,5 @@ router
     }
   });
 });
+
 module.exports = router
