@@ -30,6 +30,41 @@ router
       res.redirect('/');
     }
   });
+})
+//Load single Article route For Edit
+.get('/article/edit/:_id',(req,res)=>{
+  Article.findById(req.params._id,(err,singleArticle)=>{
+      res.render('edit_article',{
+        title:'Edit Article',
+       singleArticle:singleArticle
+    });
+  });
+})
+//Update single Article
+.post('/article/edit/:_id',(req,res)=>{
+  let refArticle ={};
+  refArticle.title = req.body.title;
+  refArticle.author = req.body.author;
+  refArticle.body = req.body.body;
+ let query = {_id:req.params._id};
+
+  Article.update(query,refArticle,(err)=>{
+    if (err) {
+      console.log(err);
+    }else {
+      res.redirect('/');
+    }
+  });
+})
+//Deleting single Artile
+.delete('/article/delete/:_id',(req,res)=>{
+   let query = {_id:req.params._id};
+   Article.remove(query,(err)=>{
+     if (err) {
+       console.log(err);
+     }
+     res.send('success');
+   })
 });
 
 module.exports = router

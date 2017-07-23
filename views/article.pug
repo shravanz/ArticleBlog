@@ -4,3 +4,6 @@ block content
   h1= singleArticle.title
   h5 Written by #{singleArticle.author}
   h4= singleArticle.body
+  hr
+  a.btn.btn-primary(href='/article/edit/'+singleArticle._id) Edit
+  a.btn.btn-danger.delete-article(href='#',data-id=singleArticle._id) Delete
