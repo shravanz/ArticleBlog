@@ -1,2 +1,2 @@
 # ArticleBlog
-Simple Article-Blog Where Users can Creates articles 
+Simple Article-Blog Where Users can Write articles 

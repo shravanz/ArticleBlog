@@ -19,17 +19,32 @@ router
 })
 //post request routes
 .post('/addArticle',(req,res)=>{
-  let refArticle = new Article();
-  refArticle.title = req.body.title;
-  refArticle.author = req.body.author;
-  refArticle.body = req.body.body;
-  refArticle.save((err)=>{
-    if (err) {
-      console.log(err);
-    }else {
-      res.redirect('/');
-    }
-  });
+  req.checkBody('title','Please enter the Title').notEmpty();
+  req.checkBody('author','Please enter the Author').notEmpty();
+  req.checkBody('body','Please enter the Body').notEmpty();
+
+  //Get Errors
+  let errors = req.getValidationResult();
+  if(errors){
+    res.render('add',{
+      someVar:'Add Article',
+      errors:errors
+    });
+  }else{
+    let refArticle = new Article();
+    refArticle.title = req.body.title;
+    refArticle.author = req.body.author;
+    refArticle.body = req.body.body;
+    refArticle.save((err)=>{
+      if (err) {
+        console.log(err);
+      }else {
+        req.flash('success','Article Added');
+        res.redirect('/');
+      }
+    });
+  }
+
 })
 //Load single Article route For Edit
 .get('/article/edit/:_id',(req,res)=>{
@@ -52,6 +67,7 @@ router
     if (err) {
       console.log(err);
     }else {
+      req.flash('success','Article Updated');
       res.redirect('/');
     }
   });
